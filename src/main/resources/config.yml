@@ -1,0 +1,170 @@
+# ========================================================================
+# AstInvsee - Управление инвентарями игроков | Конфигурация
+# ========================================================================
+#
+# В плагине полная поддержка форматов цвета:
+# - Legacy: &a, &l
+# - HEX: &#FAEDCB
+# - MiniMessage: <gradient:#FAEDCB:#C9E4DE>Текст</gradient>
+# - Заполнители PlaceholderAPI
+# ========================================================================
+
+# Запрещать ли игроку перемещение/выбрасывание/подбор вещей, когда его инвентарь смотрит администратор (с правом astinvsee.admin)
+freeze-when-viewed: false
+
+# Логирование действий администраторов
+logging:
+  enabled: true
+
+# Система сохранения инвентарей (снапшоты)
+saves:
+  # Включена ли система сохранений?
+  enabled: true
+
+# Формат отображения времени для эффектов зелий
+time-format:
+  days: "д."
+  hours: "ч."
+  minutes: "м."
+  seconds: "с."
+
+messages:
+  no-permission: "&cУ вас нет прав для использования этой команды!"
+  usage-invsee: "<gradient:#FAEDCB:#C9E4DE>Использование: /invsee <игрок></gradient>"
+  usage-astinvsee:
+    - "&8=== <gradient:#FAEDCB:#C9E4DE>Помощь по AstInvsee</gradient> &8==="
+    - "&f/astinvsee saves <игрок> &7- открыть меню сохранений игрока"
+    - "&f/astinvsee reload &7- перезагрузить плагин"
+    - "&f/invsee <игрок> &7- открыть инвентарь игрока (astinvsee.use)"
+    -
+  offline: "&#FF0000Игрок не найден или оффлайн."
+  self: "&eВы не можете открыть свой собственный инвентарь."
+
+  gui-title: "&8Инвентарь: &a%player%"
+  reloaded: "&aПлагин AstInvsee успешно перезагружен."
+
+  save-prompt: "&eВведите в чат название для сохранения &7(или '%cancel_word%' для отмены)&e:"
+  save-cancel-word: "cancel" # Слово, которое нужно ввести в чат для отмены создания сохранения
+  save-cancelled: "&cСоздание сохранения отменено."
+  save-success: "&aСохранение '&f%name%&a' успешно создано!"
+
+  save-loaded: "&aСохранение '&f%name%&a' успешно применено к игроку!"
+  save-not-found: "&cСохранение не найдено!"
+  saves-empty: "&cНет доступных сохранений."
+  player-offline-load: "&cИгрок оффлайн."
+  unknown-date: "Неизвестно"
+
+gui:
+  decor:
+    material: BLACK_STAINED_GLASS_PANE
+    name: " "
+    lore: []
+
+  # Кнопка создания нового сохранения (слот 16)
+  save-btn:
+    material: LIME_DYE
+    name: "&aСоздать сохранение (снимок)"
+    lore: []
+
+  # Кнопка открытия списка сохранений (слот 17)
+  load-btn:
+    material: ORANGE_DYE
+    name: "&6Применить сохранение"
+    lore: []
+
+  # Заголовок меню со списком сохранений
+  saves-title: "&8Сохранения: &a%player%"
+
+  # Шаблон для сохранений в списке
+  save-item:
+    material: PAPER
+    name: "&e%name%"
+    lore:
+      - "&7Дата создания: &e%date%"
+      - "&7"
+      - "&aНажмите, чтобы применить"
+
+  # Страницы в списке сохранений
+  next-page:
+    material: ARROW
+    name: "&aСледующая страница"
+    lore: []
+  prev-page:
+    material: ARROW
+    name: "&cПредыдущая страница"
+    lore: []
+
+  # Заголовок меню подтверждения загрузки сохранения
+  confirm-title: "&8Подтверждение &0%name%"
+
+  # Кнопки в меню подтверждения
+  confirm-yes:
+    material: GREEN_STAINED_GLASS_PANE
+    name: "&aПодтвердить"
+    lore: []
+  confirm-no:
+    material: RED_STAINED_GLASS_PANE
+    name: "&cОтменить"
+    lore: []
+
+  # Настройки отображения текущих эффектов зелий игрока (слот 1)
+  bottle:
+    material: POTION
+    name: "&dЭффекты игрока"
+    empty-color: "#808080" # HEX цвет колбочки, если эффектов нет. Можно оставить пустым, чтобы использовалась пустая колбочка
+    filled-color: "#FF55FF" # HEX цвет колбочки, если эффекты естьМожно оставить пустым, чтобы использовалась пустая колбочка
+    empty-text: "&7Нет активных эффектов"
+    effect-format: "&7- &f%effect% %level% &8(&7%time%&8)" # Формат вывода эффектов
+
+  # Настройки головы игрока (слот 0)
+  head:
+    name: "&a%player%"
+    lore:
+      - "&cЗдоровье: &f%health% / %max_health%"
+      - "&6Голод: &f%food% / 20"
+      - "&7"
+      - "&7Баланс: &e%vault_eco_balance%"
+
+# Названия эффектов зелий
+effects:
+  SPEED: "Скорость"
+  SLOW: "Замедление"
+  HASTE: "Спешка"
+  FAST_DIGGING: "Спешка"
+  MINING_FATIGUE: "Усталость"
+  SLOW_DIGGING: "Усталость"
+  STRENGTH: "Сила"
+  INCREASE_DAMAGE: "Сила"
+  INSTANT_HEALTH: "Мгновенное лечение"
+  HEAL: "Мгновенное лечение"
+  INSTANT_DAMAGE: "Мгновенный урон"
+  HARM: "Мгновенный урон"
+  JUMP: "Прыгучесть"
+  JUMP_BOOST: "Прыгучесть"
+  NAUSEA: "Тошнота"
+  CONFUSION: "Тошнота"
+  REGENERATION: "Регенерация"
+  RESISTANCE: "Сопротивление"
+  DAMAGE_RESISTANCE: "Сопротивление"
+  FIRE_RESISTANCE: "Огнестойкость"
+  WATER_BREATHING: "Подводное дыхание"
+  INVISIBILITY: "Невидимость"
+  BLINDNESS: "Слепота"
+  NIGHT_VISION: "Ночное зрение"
+  HUNGER: "Голод"
+  WEAKNESS: "Слабость"
+  POISON: "Отравление"
+  WITHER: "Иссушение"
+  HEALTH_BOOST: "Повышение здоровья"
+  ABSORPTION: "Поглощение"
+  SATURATION: "Насыщение"
+  GLOWING: "Свечение"
+  LEVITATION: "Левитация"
+  LUCK: "Удача"
+  UNLUCK: "Неудача"
+  SLOW_FALLING: "Плавное падение"
+  CONDUIT_POWER: "Сила источника"
+  DOLPHINS_GRACE: "Грация дельфина"
+  BAD_OMEN: "Дурное знамение"
+  HERO_OF_THE_VILLAGE: "Герой деревни"
+  DARKNESS: "Тьма"
