@@ -73,7 +73,7 @@ public class ColorUtils {
 
     public static String formatTime(int ticks) {
         FileConfiguration config = Main.getInstance().getConfig();
-        int totalSeconds = ticks / 20;
+        int totalSeconds = ticks;
         int days = totalSeconds / 86400;
         int hours = (totalSeconds % 86400) / 3600;
         int minutes = ((totalSeconds % 86400) % 3600) / 60;
