@@ -1,8 +1,8 @@
-package ru.asteris.utils;
+package ru.asteris.astinvsee.utils;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
-import ru.asteris.Main;
+import ru.asteris.astinvsee.Main;
 
 import java.io.File;
 import java.io.IOException;

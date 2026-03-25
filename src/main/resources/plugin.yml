@@ -1,15 +1,6 @@
 name: AstInvsee
 version: 1.0
-main: ru.asteris.Main
+main: ru.asteris.astinvsee.Main
 api-version: 1.16
-authors: [Asteris]
-commands:
-  invsee:
-    description: 'Открывает меню игрока'
-  astinvsee:
-    description: 'Настройка плагина'
-permissions:
-  astinvsee.use:
-    default: op
-  astinvsee.admin:
-    default: op
+author: Asteris
+depend: [AstLib]

@@ -1,10 +1,10 @@
-package ru.asteris;
+package ru.asteris.astinvsee;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import ru.asteris.commands.AstInvseeCommand;
-import ru.asteris.commands.InvseeCommand;
-import ru.asteris.managers.InvseeManager;
-import ru.asteris.managers.SaveManager;
+import ru.asteris.astinvsee.commands.AstInvseeCommand;
+import ru.asteris.astinvsee.commands.InvseeCommand;
+import ru.asteris.astinvsee.managers.InvseeManager;
+import ru.asteris.astinvsee.managers.SaveManager;
 
 public class Main extends JavaPlugin {
 
@@ -23,13 +23,8 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(invseeManager, this);
         getServer().getPluginManager().registerEvents(saveManager, this);
 
-        AstInvseeCommand astCmd = new AstInvseeCommand();
-        getCommand("astinvsee").setExecutor(astCmd);
-        getCommand("astinvsee").setTabCompleter(astCmd);
-
-        InvseeCommand invCmd = new InvseeCommand();
-        getCommand("invsee").setExecutor(invCmd);
-        getCommand("invsee").setTabCompleter(invCmd);
+        new AstInvseeCommand();
+        new InvseeCommand();
 
         invseeManager.startTask();
     }

@@ -1,6 +1,6 @@
-package ru.asteris.utils;
+package ru.asteris.astinvsee.utils;
 
-import ru.asteris.Main;
+import ru.asteris.astinvsee.Main;
 
 import java.io.File;
 import java.io.FileWriter;
