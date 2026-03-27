@@ -145,7 +145,7 @@ public class SaveManager implements Listener {
                 viewer.sendMessage(ColorUtils.colorize(msg));
                 LogUtils.log(viewer.getName() + " загрузил сохранение '" + saveName + "' игроку " + target.getName());
             } else {
-                viewer.sendMessage(ColorUtils.colorize(Main.getInstance().getConfig().getString("messages.player-offline-load")));
+                viewer.sendMessage(ColorUtils.colorize(Main.getInstance().getConfig().getString("messages.offline")));
             }
             viewer.closeInventory();
         });

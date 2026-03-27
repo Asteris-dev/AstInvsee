@@ -1,6 +1,7 @@
 package ru.asteris.astinvsee.commands;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import ru.asteris.astinvsee.Main;
@@ -31,19 +32,18 @@ public class InvseeCommand extends AbstractCommand {
             return;
         }
 
-        Player target = Bukkit.getPlayer(args[0]);
+        OfflinePlayer target = Bukkit.getOfflinePlayer(args[0]);
 
-        if (target == null || !target.isOnline()) {
+        if (!target.hasPlayedBefore() && !target.isOnline()) {
             player.sendMessage(ColorUtils.colorize(Main.getInstance().getConfig().getString("messages.offline")));
             return;
         }
 
-        if (player.equals(target)) {
-            player.sendMessage(ColorUtils.colorize(Main.getInstance().getConfig().getString("messages.self")));
-            return;
+        if (target.isOnline()) {
+            Main.getInstance().getInvseeManager().openInvsee(player, target.getPlayer());
+        } else {
+            Main.getInstance().getInvseeManager().openOfflineInvsee(player, target);
         }
-
-        Main.getInstance().getInvseeManager().openInvsee(player, target);
     }
 
     @Override

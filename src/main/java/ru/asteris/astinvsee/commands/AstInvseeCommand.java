@@ -11,6 +11,7 @@ public class AstInvseeCommand extends AbstractCommand {
         super("astinvsee");
         addSubCommand(new ReloadSubCommand());
         addSubCommand(new SavesSubCommand());
+        addSubCommand(new SaveSubCommand());
     }
 
     @Override

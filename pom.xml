@@ -6,7 +6,7 @@
 
     <groupId>ru.asteris</groupId>
     <artifactId>AstInvsee</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -23,6 +23,10 @@
             <id>placeholderapi</id>
             <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
+        <repository>
+            <id>codemc-repo</id>
+            <url>https://repo.codemc.io/repository/maven-public/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -38,12 +42,17 @@
             <version>2.11.5</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>ru.asteris</groupId>
             <artifactId>AstLib</artifactId>
             <version>1.0</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.tr7zw</groupId>
+            <artifactId>item-nbt-api</artifactId>
+            <version>2.12.4</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
@@ -57,6 +66,28 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <relocations>
+                                <relocation>
+                                    <pattern>de.tr7zw.changeme.nbtapi</pattern>
+                                    <shadedPattern>ru.asteris.astinvsee.libs.nbtapi</shadedPattern>
+                                </relocation>
+                            </relocations>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
